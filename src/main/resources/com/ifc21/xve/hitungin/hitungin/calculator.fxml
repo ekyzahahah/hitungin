@@ -9,7 +9,7 @@
 <VBox styleClass="container" alignment="CENTER" xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.ifc21.xve.hitungin.hitungin.mainHitung">
     <GridPane styleClass="top__container">
-        <TextField fx:id="display" editable="false" text="0" />
+        <TextField fx:id="display" editable="false" text="0" styleClass="field" focusTraversable="false"/>
     </GridPane>
     <GridPane styleClass="bottom__container">
         <HBox styleClass="bottom__content" spacing="16">

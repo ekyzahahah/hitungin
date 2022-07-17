@@ -8,7 +8,17 @@
 .top__container {
     -fx-pref-width: 390px;
     -fx-pref-height: 240px;
-    -fx-padding: 24px 24px 0 24px;
+    -fx-padding: 8px;
+}
+
+.field {
+    -fx-background-color: #22252D;
+    -fx-pref-width: 390px;
+    -fx-pref-height: 240px;
+    -fx-alignment: bottom-right;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: 700;
+    -fx-font-size: 32px;
 }
 
 .bottom__container {
