@@ -27,8 +27,11 @@
 .btn {
     -fx-text-fill: #FAFCFC;
     -fx-background-color: #22252D;
-    -fx-padding: 24px;
     -fx-background-radius: 24px;
     -fx-font-size: 16px;
     -fx-font-weight: 700;
+    -fx-pref-width: 74px;
+    -fx-pref-height: 74px;
+    -fx-alignment: center;
+    -fx-cursor: hand;
 }
