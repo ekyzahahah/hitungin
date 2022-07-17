@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Label?>
+<VBox styleClass="container" alignment="CENTER">
+    <GridPane styleClass="top__container"></GridPane>
+    <GridPane styleClass="bottom__container">
+        <HBox styleClass="bottom__content" spacing="16">
+            <VBox styleClass="button__container" spacing="16">
+                <Label text="AC" styleClass="btn"/>
+                <Label text="AC" styleClass="btn"/>
+                <Label text="AC" styleClass="btn"/>
+                <Label text="AC" styleClass="btn"/>
+                <Label text="AC" styleClass="btn"/>
+            </VBox>
+            <VBox styleClass="button__container" spacing="16">
+                <Label text="AC" styleClass="btn"/>
+                <Label text="AC" styleClass="btn"/>
+                <Label text="AC" styleClass="btn"/>
+                <Label text="AC" styleClass="btn"/>
+                <Label text="AC" styleClass="btn"/>
+            </VBox>
+            <VBox styleClass="button__container" spacing="16">
+                <Label text="AC" styleClass="btn"/>
+                <Label text="AC" styleClass="btn"/>
+                <Label text="AC" styleClass="btn"/>
+                <Label text="AC" styleClass="btn"/>
+                <Label text="AC" styleClass="btn"/>
+            </VBox>
+            <VBox styleClass="button__container" spacing="16">
+                <Label text="AC" styleClass="btn"/>
+                <Label text="AC" styleClass="btn"/>
+                <Label text="AC" styleClass="btn"/>
+                <Label text="AC" styleClass="btn"/>
+                <Label text="AC" styleClass="btn"/>
+            </VBox>
+        </HBox>
+    </GridPane>
+</VBox>
