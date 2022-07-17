@@ -61,7 +61,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                com.ifc21.xve.hitungin.hitungin/com.ifc21.xve.hitungin.hitungin.HelloApplication
+                                com.ifc21.xve.hitungin.hitungin/com.ifc21.xve.hitungin.hitungin.mainHitung
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>

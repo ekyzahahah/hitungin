@@ -3,40 +3,43 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.control.Label?>
 
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
 <VBox styleClass="container" alignment="CENTER" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.ifc21.xve.hitungin.hitungin.HelloController">
-    <GridPane styleClass="top__container"/>
-    <GridPane styleClass="bottom__container" onMouseClicked="#onTargetSelected">
+      fx:controller="com.ifc21.xve.hitungin.hitungin.mainHitung">
+    <GridPane styleClass="top__container">
+        <TextField fx:id="display" editable="false" text="0" />
+    </GridPane>
+    <GridPane styleClass="bottom__container">
         <HBox styleClass="bottom__content" spacing="16">
             <VBox styleClass="button__container" spacing="16">
-                <Label text="AC" styleClass="btn" style="-fx-text-fill: #4EE4CD"/>
-                <Label text="7" styleClass="btn"/>
-                <Label text="4" styleClass="btn"/>
-                <Label text="1" styleClass="btn"/>
-                <Label text="B" styleClass="btn"/>
+                <Button text="AC" styleClass="btn" style="-fx-text-fill: #4EE4CD"/>
+                <Button text="7" onAction="#onTargetSelected" styleClass="btn"/>
+                <Button text="4" onAction="#onTargetSelected" styleClass="btn"/>
+                <Button text="1" onAction="#onTargetSelected" styleClass="btn"/>
+                <Button text="C" onAction="#onTargetSelected" styleClass="btn"/>
             </VBox>
             <VBox styleClass="button__container" spacing="16">
-                <Label text="+/-" styleClass="btn" style="-fx-text-fill: #4EE4CD"/>
-                <Label text="8" styleClass="btn"/>
-                <Label text="5" styleClass="btn"/>
-                <Label text="2" styleClass="btn"/>
-                <Label text="0" styleClass="btn"/>
+                <Button text="+/-" styleClass="btn" style="-fx-text-fill: #4EE4CD"/>
+                <Button text="8" onAction="#onTargetSelected" styleClass="btn"/>
+                <Button text="5" onAction="#onTargetSelected" styleClass="btn"/>
+                <Button text="2" onAction="#onTargetSelected" styleClass="btn"/>
+                <Button text="0" onAction="#onTargetSelected" styleClass="btn"/>
             </VBox>
             <VBox styleClass="button__container" spacing="16">
-                <Label text="\%" styleClass="btn" style="-fx-text-fill: #4EE4CD"/>
-                <Label text="9" styleClass="btn"/>
-                <Label text="6" styleClass="btn"/>
-                <Label text="3" styleClass="btn"/>
-                <Label text="." styleClass="btn"/>
+                <Button text="\%" onAction="#onTargetSelected" styleClass="btn" style="-fx-text-fill: #4EE4CD"/>
+                <Button text="9" onAction="#onTargetSelected" styleClass="btn"/>
+                <Button text="6" onAction="#onTargetSelected" styleClass="btn"/>
+                <Button text="3" onAction="#onTargetSelected" styleClass="btn"/>
+                <Button text="." onAction="#onTargetSelected" styleClass="btn"/>
             </VBox>
             <VBox styleClass="button__container" spacing="16">
-                <Label text="/" styleClass="btn" style="-fx-text-fill: #EA8182"/>
-                <Label text="X" styleClass="btn" style="-fx-text-fill: #EA8182"/>
-                <Label text="-" styleClass="btn" style="-fx-text-fill: #EA8182"/>
-                <Label text="+" styleClass="btn" style="-fx-text-fill: #EA8182"/>
-                <Label text="=" styleClass="btn" style="-fx-text-fill: #EA8182"/>
+                <Button text="÷" onAction="#onTargetSelected" styleClass="btn" style="-fx-text-fill: #EA8182"/>
+                <Button text="×" onAction="#onTargetSelected" styleClass="btn" style="-fx-text-fill: #EA8182"/>
+                <Button text="－" onAction="#onTargetSelected" styleClass="btn" style="-fx-text-fill: #EA8182"/>
+                <Button text="＋" onAction="#onTargetSelected" styleClass="btn" style="-fx-text-fill: #EA8182"/>
+                <Button text="=" onAction="#onTargetSelected" styleClass="btn" style="-fx-text-fill: #EA8182"/>
             </VBox>
         </HBox>
     </GridPane>
