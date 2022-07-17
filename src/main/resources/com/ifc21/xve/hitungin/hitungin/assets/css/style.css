@@ -26,9 +26,10 @@
     -fx-pref-width: 390px;
     -fx-pref-height: 240px;
     -fx-alignment: bottom-right;
-    -fx-text-fill: #FFFFFF;
+    -fx-text-fill: #FFFFFF75;
     -fx-font-weight: 700;
     -fx-font-size: 24px;
+    -fx-padding: 0 16px 0 16px;
 }
 
 .bottom__container {

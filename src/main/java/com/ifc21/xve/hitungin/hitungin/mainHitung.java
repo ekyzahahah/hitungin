@@ -8,24 +8,65 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.util.Objects;
 
 public class mainHitung extends Application {
-
-    private BigDecimal left;
-    private String selectedOperator;
-    private boolean numberInputting;
-
     @FXML
-    private TextField display, displayOperator;
+    private TextField previousOperation, currentOperation;
 
-    public mainHitung() {
-        this.left = BigDecimal.ZERO;
-        this.selectedOperator = "";
-        this.numberInputting = false;
+    private String operation;
+
+    private void allClear() {
+        this.currentOperation.setText("");
+        this.previousOperation.setText("");
+        this.operation = null;
+    }
+
+    private void selectNumber(String number) {
+        if (number.equals(".") && currentOperation.getText().contains(".")) return;
+        this.currentOperation.setText(currentOperation.getText() + number);
+    }
+
+    private void selectOperation(String operation) {
+        if (this.currentOperation.getText().equals("")) return;
+        if (!this.previousOperation.getText().equals("")) {
+            this.summary();
+        }
+        this.operation = operation;
+        this.previousOperation.setText(this.currentOperation.getText());
+        this.currentOperation.setText("");
+    }
+
+    private void summary() {
+        float sum;
+        float prev = Float.parseFloat(previousOperation.getText());
+        float current = Float.parseFloat(currentOperation.getText());
+        if (Float.isNaN(prev) || Float.isNaN(current)) return;
+        switch (this.operation) {
+            case "＋":
+                sum = prev + current;
+                break;
+            case "－":
+                sum = prev - current;
+                break;
+            case "x":
+                sum = prev * current;
+                break;
+            case "÷":
+                sum = prev / current;
+                break;
+            default:
+                return;
+        }
+        this.currentOperation.setText(String.valueOf(sum));
+        this.operation = null;
+        this.previousOperation.setText("");
+    }
+
+    private void updateView() {
+        this.currentOperation.setText(currentOperation.getText());
+        this.previousOperation.setText(this.previousOperation.getText());
     }
 
     @Override
@@ -40,58 +81,28 @@ public class mainHitung extends Application {
         stage.show();
     }
 
-    public void onTargetSelected(ActionEvent e) {
-        Button button = (Button)e.getSource();
-        final String buttonText = button.getText();
-        if (buttonText.equals("C") || buttonText.equals("AC")) {
-            if (buttonText.equals("AC")) {
-                left = BigDecimal.ZERO;
-            }
-            selectedOperator = "";
-            numberInputting = false;
-            displayOperator.setText(null);
-            display.setText("0");;
-            return;
-        }
-        if (buttonText.matches("[0-9\\.]")) {
-            if (!numberInputting) {
-                numberInputting = true;
-                display.clear();
-            }
-            display.appendText(buttonText);
-            return;
-        }
-        if (buttonText.matches("[＋－×÷]")) {
-            left = new BigDecimal(display.getText());
-            displayOperator.setText(left + buttonText);
-            selectedOperator = buttonText;
-            display.setText("0");
-            numberInputting = false;
-            return;
-        }
-        if (buttonText.equals("=")) {
-            buttonText.replace("+","");
-            final BigDecimal right = numberInputting ? new BigDecimal(display.getText()) : left;
-            left = calculate(selectedOperator, left, right);
-            displayOperator.setText(left.toString());
-            display.setText("0");
-            numberInputting = false;
-        }
+    public void onNumberSelected(ActionEvent e) {
+        Button button = (Button) e.getSource();
+        selectNumber(button.getText());
+        updateView();
     }
 
-    static BigDecimal calculate(String operator, BigDecimal left, BigDecimal right) {
-        switch (operator) {
-            case "＋":
-                return left.add(right);
-            case "－":
-                return left.subtract(right);
-            case "×":
-                return left.multiply(right);
-            case "÷":
-                return left.divide(right);
-            default:
-        }
-        return right;
+    public void onOperationSelected(ActionEvent e) {
+        Button button = (Button) e.getSource();
+        selectOperation(button.getText());
+        updateView();
+    }
+
+    public void onTargetSelected() {
+    }
+
+    public void equalsOperationSelected() {
+        summary();
+        updateView();
+    }
+
+    public void onAllClearSelected() {
+        allClear();
     }
 
     public static void main(String[] args) {
