@@ -8,9 +8,10 @@
 <?import javafx.scene.control.Button?>
 <VBox styleClass="container" alignment="CENTER" xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.ifc21.xve.hitungin.hitungin.mainHitung">
-    <GridPane styleClass="top__container">
+    <VBox styleClass="top__container">
+        <TextField fx:id="displayOperator" editable="false" text="" styleClass="field__operator" focusTraversable="false"/>
         <TextField fx:id="display" editable="false" text="0" styleClass="field" focusTraversable="false"/>
-    </GridPane>
+    </VBox>
     <GridPane styleClass="bottom__container">
         <HBox styleClass="bottom__content" spacing="16">
             <VBox styleClass="button__container" spacing="16">

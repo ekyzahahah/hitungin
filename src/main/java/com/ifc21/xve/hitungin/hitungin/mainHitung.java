@@ -20,7 +20,7 @@ public class mainHitung extends Application {
     private boolean numberInputting;
 
     @FXML
-    private TextField display;
+    private TextField display, displayOperator;
 
     public mainHitung() {
         this.left = BigDecimal.ZERO;
@@ -49,6 +49,7 @@ public class mainHitung extends Application {
             }
             selectedOperator = "";
             numberInputting = false;
+            displayOperator.setText(null);
             display.setText("0");;
             return;
         }
@@ -62,14 +63,18 @@ public class mainHitung extends Application {
         }
         if (buttonText.matches("[＋－×÷]")) {
             left = new BigDecimal(display.getText());
+            displayOperator.setText(left + buttonText);
             selectedOperator = buttonText;
+            display.setText("0");
             numberInputting = false;
             return;
         }
         if (buttonText.equals("=")) {
+            buttonText.replace("+","");
             final BigDecimal right = numberInputting ? new BigDecimal(display.getText()) : left;
             left = calculate(selectedOperator, left, right);
-            display.setText(left.toString());
+            displayOperator.setText(left.toString());
+            display.setText("0");
             numberInputting = false;
         }
     }
