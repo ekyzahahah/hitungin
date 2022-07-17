@@ -61,7 +61,7 @@ public class mainHitung extends Application {
             display.appendText(buttonText);
             return;
         }
-        if (buttonText.matches("[＋－×÷]")) {
+        if (buttonText.matches("[＋－×÷%]")) {
             left = new BigDecimal(display.getText());
             displayOperator.setText(left + buttonText);
             selectedOperator = buttonText;
@@ -88,6 +88,8 @@ public class mainHitung extends Application {
             case "×":
                 return left.multiply(right);
             case "÷":
+                return left.divide(right);
+            case  "%":
                 return left.divide(right);
             default:
         }
