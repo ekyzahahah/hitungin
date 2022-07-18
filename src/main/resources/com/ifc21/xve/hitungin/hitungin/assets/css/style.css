@@ -11,6 +11,12 @@
     -fx-padding: 8px;
 }
 
+.switch__light__container {
+    -fx-background-color: yellow;
+    -fx-padding: 8px;
+    -fx-min-width: 80px;
+}
+
 .field {
     -fx-background-color: #22252D;
     -fx-pref-width: 390px;
