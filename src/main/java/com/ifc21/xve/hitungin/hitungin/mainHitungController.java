@@ -42,10 +42,17 @@ public class mainHitungController {
 
     private void summary() {
         float sum;
+        float current = 0;
+        float prev;
         StringBuilder stringBuilder = new StringBuilder(previousOperation.getText());
-        stringBuilder.deleteCharAt(stringBuilder.length() - 1);
-        float prev = Float.parseFloat(String.valueOf(stringBuilder));
-        float current = Float.parseFloat(this.currentOperation.getText());
+        if (!this.operation.equals("%")) {
+            stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+            current = Float.parseFloat(this.currentOperation.getText());
+        }
+        prev = Float.parseFloat(String.valueOf(stringBuilder));
+        if (this.operation.equals("%")) {
+            current = 100;
+        }
         if (Float.isNaN(prev) || Float.isNaN(current)) return;
         switch (this.operation) {
             case "+":
@@ -72,7 +79,7 @@ public class mainHitungController {
     }
 
     private void update() {
-        this.currentOperation.setText(currentOperation.getText());
+        this.currentOperation.setText(this.currentOperation.getText());
         this.previousOperation.setText(this.previousOperation.getText());
         if (this.operation != null) {
             if (previousOperation.getText().contains(this.operation)) return;
@@ -116,5 +123,9 @@ public class mainHitungController {
         }
     }
 
-    public void onPercentSelected() {}
+    public void onPercentSelected(ActionEvent e) {
+        Button button = (Button) e.getSource();
+        selectOperation(button.getText());
+        summary();
+    }
 }
