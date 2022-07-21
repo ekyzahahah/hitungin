@@ -11,10 +11,23 @@ public class mainHitungController {
 
     private String operation;
 
+    private void update() {
+        this.currentOperation.setText(this.currentOperation.getText());
+        this.previousOperation.setText(this.previousOperation.getText());
+        if (this.operation != null) {
+            if (previousOperation.getText().contains(this.operation)) return;
+            this.previousOperation.setText(this.previousOperation.getText() + this.operation);
+        }
+    }
+
     private void allClear() {
         this.currentOperation.setText("");
         this.previousOperation.setText("");
         this.operation = null;
+    }
+
+    public void onAllClearSelected() {
+        allClear();
     }
 
     private void delete() {
@@ -24,10 +37,20 @@ public class mainHitungController {
         this.currentOperation.setText(String.valueOf(tempString));
     }
 
+    public void onDeleteSelected() {
+        delete();
+    }
+
     private void selectNumber(String number) {
         if (number.equals(".") && currentOperation.getText().contains(".")) return;
         if (number.equals("100")) return;
         this.currentOperation.setText(currentOperation.getText() + number);
+    }
+
+    public void onNumberSelected(ActionEvent e) {
+        Button button = (Button) e.getSource();
+        selectNumber(button.getText());
+        update();
     }
 
     private void selectOperation(String operation) {
@@ -38,6 +61,12 @@ public class mainHitungController {
         this.operation = operation;
         this.previousOperation.setText(this.currentOperation.getText());
         this.currentOperation.setText("");
+    }
+
+    public void onOperationSelected(ActionEvent e) {
+        Button button = (Button) e.getSource();
+        selectOperation(button.getText());
+        update();
     }
 
     private void summary() {
@@ -76,35 +105,6 @@ public class mainHitungController {
         this.currentOperation.setText(String.valueOf(sum));
         this.operation = null;
         this.previousOperation.setText("");
-    }
-
-    private void update() {
-        this.currentOperation.setText(this.currentOperation.getText());
-        this.previousOperation.setText(this.previousOperation.getText());
-        if (this.operation != null) {
-            if (previousOperation.getText().contains(this.operation)) return;
-            this.previousOperation.setText(this.previousOperation.getText() + this.operation);
-        }
-    }
-
-    public void onAllClearSelected() {
-        allClear();
-    }
-
-    public void onDeleteSelected() {
-        delete();
-    }
-
-    public void onNumberSelected(ActionEvent e) {
-        Button button = (Button) e.getSource();
-        selectNumber(button.getText());
-        update();
-    }
-
-    public void onOperationSelected(ActionEvent e) {
-        Button button = (Button) e.getSource();
-        selectOperation(button.getText());
-        update();
     }
 
     public void equalsOperationSelected() {
